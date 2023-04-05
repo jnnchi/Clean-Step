@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!-- Styling from CSS files to format the page -->
+  <title>Homepage - Semantic</title>
+  <link rel="stylesheet" type="text/css" href="../dist/components/reset.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/site.css">
+
+  <link rel="stylesheet" type="text/css" href="../dist/components/container.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/grid.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/header.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/image.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/menu.css">
+
+  <link rel="stylesheet" type="text/css" href="../dist/components/divider.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/segment.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/button.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/list.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/icon.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/sidebar.css">
+  <link rel="stylesheet" type="text/css" href="../dist/components/transition.css">
+
+  <!-- Style for the header - top of the website-->
+  <style type="text/css">
+    .hidden.menu {
+      display: none;
+    }
+
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+
+
+  </style>
+
+  <!--  JS files - opening menu and sidebar  -->
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/components/visibility.js"></script>
+  <script src="../dist/components/sidebar.js"></script>
+  <script src="../dist/components/transition.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+      // fixes menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
+</head>
+<body>
+
+<!-- Main Menu, same for every file  -->
+<div class="ui large top fixed hidden menu">
+  <div class="ui container">
+    <a class="item">Home</a>
+    <a class="active item">About</a>
+    <a class="item">Informational Articles</a>
+    <a class="item">How to Help</a>
+    <div class="right menu">
+      <div class="item">
+        <a class="ui primary button">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+  <a class="item">Home</a>
+  <a class="active item">About</a>
+  <a class="item">Informational Articles</a>
+  <a class="item">How to Help</a>
+  <a class="item">Login</a>
+  <a class="item">Signup</a>
+</div>
+
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <!-- assign files to different buttons-->
+        <a class="item" href="index.html">Home</a>
+        <a class="active item">About</a>
+        <a class="item" href="inform.html">Informational Articles</a>
+        <a class="item" href="howtohelp.html">How to Help</a>
+        <div class="right item">
+          <a class="ui inverted button" href="https://forms.gle/V23FG1WvSWTsMZTk7">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Title at the top of the Page -->
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+        About
+      </h1>
+      <h2>The Planet Programmers</h2>
+      <div class="ui huge primary button"><p ><a style="color:#FFFFFF" href="howtohelp.html">Get Started</a></p></div>
+    </div>
+  </div>
+
+
+<!-- Start of web page, first section-->
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="fifteen wide column">
+          <h3 class="ui header">About Us</h3>
+          <!-- Index of page, sends user to different subsections-->
+          <p><ul class="tab">
+          <p><a href="#ourgoals">Our Goals</a></p>
+          <p><a href="#yourchoicesmattertothenvironment">Your Choices Matter to the Environment</a></p>
+          <p><a href="#whatchoicesshouldwemake">"What Choices Should We Make?"</a></p>
+          <p><a href="#butarentbig">“But Aren’t Big Corporations the Ones Who Do the Most Damage?”</a></p>
+          </ul></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- second section, (our goals)-->
+<div class="ui vertical stripe segment" id="ourgoals">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="fifteen wide column">
+          <h3 class="ui header">Our Goals</h3>
+          <p>Clean Step’s mission is to promote sustainable habits in people of all ages and backgrounds. Whether you are a child living with your parents, a college student adapting to your new lifestyle, a parent supporting your family, or a senior in retirement, you can incorporate changes into your lifestyle that will benefit the environment you live in and the state of the planet for generations to come.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- third section, (Your choices matter...)-->
+  <div class="ui vertical stripe segment" id="yourchoicesmattertothenvironment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="fifteen wide column">
+          <h3 class="ui header">Your Choices Matter to the Environment</h3>
+          <p>It’s easy for people to put climate change out of their minds, to think about the destruction of our planet as something that happens suddenly––maybe with an asteroid, an exploding sun, or even an alien invasion––but the reality is: our planet has been facing destruction since the industrial revolution in the 1750s, and it is still being destroyed right now. According to the US Environmental Protection Agency, it’s not just the gulf and Atlantic coasts of Florida that are sinking; the land surface is too. The sea level is rising fast, and it’ll soon submerge our distinctive wetlands, our beautiful beaches, and even our valuable coastal properties.</p>
+          <p><I>So what can we do to stop this?</I></p>
+          <p>Talk about it. Believe in it. Know that regardless of political standing or economic state, everyone who is living in this world will be affected by climate change. Realize that we make choices that affect our environment every day: <I>What should I eat for dinner? What shirt should I buy? Should I walk or drive to school?</I></p>
+          <p>Even if we don’t think much of these “small” decisions, we cannot deny that they have the potential to make a change.</p>
+          <p>They’ll help the people who are losing their lives to viruses that are proliferating faster and faster due to rising temperatures, the Florida panthers whose habitats are threatened by the rising sea levels, the polar bears who are slowly slipping into icy waters, and the children who are being born today, tomorrow, and next year. They’ll save the next generation</p>
+          <p>All too often do people disregard the environment and in turn their environmental footprint because they don’t believe one single person can have such a large impact. However, with a large percent of the global population harboring this mindset, effects are closer than one might think. Studies show that oil will run out in 53 years, natural gas in 54, and coal in 110. For Generation Z, these statistics matter. Oil and natural gas will be gone by the time we die if we don’t start acting now, and our children will grow up without even the prospect of it. We need to start conserving and taking these environmental changes seriously now.</p>
+          <p><B>Let’s choose the planet.</B></p>
+          <br>
+          <!-- Image-->
+          <p style="text-align:center;">
+            <img src="https://ec.europa.eu/jrc/sites/jrcsh/files/styles/normal-responsive/public/adobestock_313426278.jpeg?itok=rd45TpQv"  width="800" height="500">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- fourth section, (What choices should we make?)-->
+  <div class="ui vertical stripe segment" id="whatchoicesshouldwemake">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="fifteen wide column">
+          <h3 class="ui header">What Choices Should We Make?</h3>
+          <p>Well, you don’t have to be 100% vegan. You don’t have to take one-second showers to conserve water. Of course, it is good to do those things, but small, sustainable lifestyle choices that will slowly allow you to develop more eco-friendly habits that will last a lifetime are probably the best option.</p>
+          <p>Here at Clean Step, we believe in the power of <B>routine.</B></p>
+          <p>You don’t have to be vegan, but eating plant-based whenever you can or feel like it <B>will</B> help the environment. You don’t have to shop exclusively at Reformation, but you can shop at thrift stores, avoid fast fashion, or just try to reduce your consumerism whenever possible. You can turn off the shower when you aren’t using it or water your lawn through a drip system. <B>It will still help the environment. </B></p>
+          <p>And for those little choices, remember every action makes a difference. Walk to school if you live close enough. Carpool with a friend. Buy food from a small local business. Our How to Help page provides tips for how to reduce waste in each season, information on how to recycle, and printable/downloadable PDF templates for you to track recommended habits or whatever habits you want to develop.</p>
+          <p>Remember, any step towards a better environment is a step forward, as long as you stick with it. </p>
+           <!-- Image-->
+          <p style="text-align:center;">
+            <img src="https://www.nhm.ac.uk/content/dam/nhmwww/discover/actions-for-the-planet/planet-actions-waste-two-column.jpg.thumb.1160.1160.jpg"  width="700" height="400">
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- fifth section, (But Aren't Big Corporations...)-->
+    <div class="ui vertical stripe segment" id="butarentbig">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="fifteen wide column">
+          <h3 class="ui header">“But Aren’t Big Corporations the Ones Who Do the Most Damage?”</h3>
+          <p>Yes, but slowly changing your lifestyle to be more eco-friendly also means you’ll make decisions to buy from more eco-friendly stores. You’ll be another precious gear in the wheel of consumer demand, moving towards a greater need for green companies.</p>
+          <p>As consumers, we control the companies we buy from. Already, fast food chains, like McDonald’s, KFC, Starbucks, Chipotle, and more, are making conscious choices to reduce their plastic and styrofoam packaging and are repurposing their equipment and furniture. Making choices to support businesses who care about the environment will push more and more to go green.</p>
+          <p>Climate change is not something we should be leaving for countries or companies to handle (although we should push them towards becoming more eco-friendly). Since its effects can be felt on global, national, local, and personal scales, it is not something any of us can simply ignore. Whether it’s a decision to resell clothing instead of throwing it away, a formation of the habit to turn off the water while brushing your teeth, or a resolution to eat more organic and non-GMO foods, every step matters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- sixth section, ending-->
+ <div class="ui vertical stripe segment">
+      <div class="ui text container">
+        <h2 style="text-align:center;">At Clean Step, we see eco-friendliness as not just an escape from a catastrophic future, but also as a road towards a brighter one. Remember, there’s no planet B.</h2>
+              <p align="center">- Planet Programers</p>
+      </div>
+    </div>
+
+
+  <!--Footer code at the bottom left -->
+  <div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">The Planet Programmers</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Sarah Dufays</a>
+            <a href="#" class="item">Anna Priore</a>
+            <a href="#" class="item">Jennifer Chiou </a>
+            <a href="#" class="item">Kayla Pena</a>
+            <a href="#" class="item">Angelina Wu</a>
+          </div>
+        </div>
+        <!-- footer code at the bottom right -->
+        <div class="three wide column">
+          <h4 class="ui inverted header">Contacts</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">pl247711@ahschool.com</a>
+            <a href="#" class="item">annapriore07@gmail.com</a>
+            <a href="#" class="item">pl247091@ahschool.com</a>
+            <a href="#" class="item">pl247111@ahschool.com</a>
+            <a href="#" class="item">pl246821@ahschool.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
